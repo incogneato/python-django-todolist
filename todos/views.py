@@ -12,8 +12,10 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-def show(request):
+def show(request, id):
+    todo = Todo.objects.get(id=id)
+
     context = {
-        'todo': 'this is my todo'
+        'todo': todo
     }
     return render(request, 'show.html', context)
