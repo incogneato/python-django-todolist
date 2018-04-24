@@ -1,0 +1,9 @@
+a {
+  color: blue;
+}
+
+.todo-complete {
+  text-decoration: line-through;
+  background: #ccc;
+  color: #555;
+}
