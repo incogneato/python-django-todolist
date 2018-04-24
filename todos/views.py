@@ -19,3 +19,15 @@ def show(request, id):
         'todo': todo
     }
     return render(request, 'show.html', context)
+
+def create(request):
+    if(request.method == 'POST'):
+        title = request.POST.get('title')
+        text_body  = request.POST.get('text')
+
+        todo = Todo(title=title, text=text_body)
+        todo.save()
+
+        return redirect('/todos')
+    else:
+        return render(request, 'add.html')
