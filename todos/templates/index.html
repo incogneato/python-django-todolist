@@ -1,0 +1,15 @@
+{% include 'partials/header.html' %}
+<ul>
+  {% for todo in todos %}
+    <li>
+      {% if todo.complete %}
+        <span class="todo-complete">
+          {{todo.title}}: {{todo.text}}
+        </span>
+      {% else %}
+        <a href="{% url 'mark-completed' todo.id %}">{{todo.title}}</a>: {{todo.text}}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% include 'partials/footer.html' %}
