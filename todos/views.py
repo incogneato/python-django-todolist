@@ -11,3 +11,9 @@ def index(request):
         'todos': todos
     }
     return render(request, 'index.html', context)
+
+def show(request):
+    context = {
+        'todo': 'this is my todo'
+    }
+    return render(request, 'show.html', context)
