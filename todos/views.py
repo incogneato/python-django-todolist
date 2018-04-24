@@ -31,3 +31,15 @@ def create(request):
         return redirect('/todos')
     else:
         return render(request, 'add.html')
+
+def complete_todo(request, id):
+    todo = Todo.objects.get(pk=id)
+    todo.complete = True
+    todo.save()
+
+    return redirect('index')
+
+def delete_completed(request):
+    Todo.objects.filter(complete__exact=True).delete()
+
+    return redirect('index')
